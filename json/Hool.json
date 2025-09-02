@@ -1,0 +1,222 @@
+[
+{
+  "food_id": 1,
+  "name": "Burger",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 101,
+  "likeCount": 5,
+  "time": 35,
+  "category": "Lunch",
+  "description": "A classic beef burger with fresh vegetables and cheese."
+},
+{
+  "food_id": 2,
+  "name": "Pizza",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 102,
+  "likeCount": 10,
+  "time": 45,
+  "category": "Lunch",
+  "description": "Italian-style pizza topped with tomato sauce and mozzarella."
+},
+{
+  "food_id": 3,
+  "name": "Sushi",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 101,
+  "likeCount": 0,
+  "time": 25,
+  "category": "Breakfast",
+  "description": "Japanese sushi rolls with rice, fish, and vegetables."
+},
+{
+  "food_id": 4,
+  "name": "Pasta",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 103,
+  "likeCount": 0,
+  "time": 30,
+  "category": "Lunch",
+  "description": "Italian pasta served with a rich tomato sauce."
+},
+{
+  "food_id": 5,
+  "name": "Fried Rice",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 102,
+  "likeCount": 0,
+  "time": 20,
+  "category": "Breakfast",
+  "description": "Stir-fried rice with vegetables and eggs."
+},
+{
+  "food_id": 6,
+  "name": "Steak",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 104,
+  "likeCount": 10,
+  "time": 60,
+  "category": "Breakfast",
+  "description": "Grilled steak cooked to perfection."
+},
+{
+  "food_id": 7,
+  "name": "Tacos",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 101,
+  "likeCount": 15,
+  "time": 15,
+  "category": "Breakfast",
+  "description": "Mexican tacos with seasoned meat and fresh toppings."
+},
+{
+  "food_id": 8,
+  "name": "Noodles",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 103,
+  "likeCount": 52,
+  "time": 18,
+  "category": "Breakfast",
+  "description": "Asian-style noodles stir-fried with vegetables."
+},
+{
+  "food_id": 9,
+  "name": "Salad",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 104,
+  "likeCount": 26,
+  "time": 12,
+  "category": "Breakfast",
+  "description": "Fresh garden salad with a variety of vegetables."
+},
+{
+  "food_id": 10,
+  "name": "Hot Dog",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 102,
+  "likeCount": 58,
+  "time": 14,
+  "category": "Breakfast",
+  "description": "Classic hot dog with ketchup and mustard."
+},
+{
+  "food_id": 11,
+  "name": "Pancakes",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 101,
+  "likeCount": 69,
+  "time": 22,
+  "category": "Breakfast",
+  "description": "Fluffy pancakes served with syrup."
+},
+{
+  "food_id": 12,
+  "name": "Ice Cream",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 103,
+  "likeCount": 58,
+  "time": 50,
+  "category": "Breakfast",
+  "description": "Creamy ice cream in assorted flavors."
+},
+{
+  "food_id": 13,
+  "name": "Sandwich",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 104,
+  "likeCount": 89,
+  "time": 13,
+  "category": "Breakfast",
+  "description": "Fresh sandwich with ham, cheese, and vegetables."
+},
+{
+  "food_id": 14,
+  "name": "Dumplings",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 102,
+  "likeCount": 79,
+  "time": 40,
+  "category": "Lunch",
+  "description": "Steamed dumplings filled with meat and vegetables."
+},
+{
+  "food_id": 15,
+  "name": "BBQ Ribs",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 101,
+  "likeCount": 0,
+  "time": 75,
+  "category": "Breakfast",
+  "description": "Tender BBQ ribs with smoky sauce."
+},
+{
+  "food_id": 16,
+  "name": "Curry",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 103,
+  "likeCount": 0,
+  "time": 55,
+  "category": "Breakfast",
+  "description": "Spicy curry with chicken and vegetables."
+},
+{
+  "food_id": 17,
+  "name": "Lasagna",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 104,
+  "likeCount": 0,
+  "time": 80,
+  "category": "Breakfast",
+  "description": "Layered lasagna with cheese and meat sauce."
+},
+{
+  "food_id": 18,
+  "name": "Cheesecake",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 102,
+  "likeCount": 0,
+  "time": 90,
+  "category": "Dinner",
+  "description": "Rich and creamy cheesecake dessert."
+},
+{
+  "food_id": 19,
+  "name": "Soup",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 101,
+  "likeCount": 0,
+  "time": 28,
+  "category": "Lunch",
+  "description": "Warm soup with vegetables and meat."
+},
+{
+  "food_id": 20,
+  "name": "Quiche",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 103,
+  "likeCount": 0,
+  "time": 35,
+  "category": "Lunch",
+  "description": "Savory quiche with eggs, cheese, and vegetables."
+},
+{
+  "food_id": 21,
+  "name": "Brownies",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 104,
+  "likeCount": 0,
+  "time": 45,
+  "category": "Lunch",
+  "description": "Chocolate brownies with a rich flavor."
+},
+{
+  "food_id": 22,
+  "name": "Muffins",
+  "image": "../zurag/hool.jpg",
+  "chef_id": 102,
+  "likeCount": 0,
+  "time": 25,
+  "category": "Breakfast",
+  "description": "Soft muffins with fruit or chocolate chips."
+}
+]

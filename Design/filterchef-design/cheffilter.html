@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cheffilter.css">
+</head>
+<body>
+      <section id="sort-chef">
+                <h2>Filter and Sort Chefs</h2>
+
+                <!-- Sort by likes -->
+                <label for="sortLikes">Sort by likes:</label>
+                <select id="sortLikes">
+                    <option value="none">None</option>
+                    <option value="asc">More Likes First</option>
+                    <option value="desc">Less Likes First</option>
+                </select>
+
+                <!-- Sort by food count -->
+                <label for="sortFoods">Sort by food count:</label>
+                <select id="sortFoods">
+                    <option value="none">None</option>
+                    <option value="asc">More Foods First</option>
+                    <option value="desc">Less Foods First</option>
+                </select>
+
+                <button id="applyFilter">Apply</button>
+            </section>  
+
+            <style>
+                #sort-chef {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding: 1rem;
+                    border: 1px solid #ccc;
+                    border-radius: 8px;
+                    background: #fafafa;
+                    width: 100%;
+                    height: 50%
+                }
+            </style>
+</body>
+</html>

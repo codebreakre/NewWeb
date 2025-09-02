@@ -1,0 +1,162 @@
+[
+    { 
+        "name": "Bataa", 
+        "description": "A creative chef with a passion for fusion cuisine. dawdsadawdsag awdaw dsa dwa dsa dwa daw dwa", 
+        "chefId": 8, 
+        "picture": "bataa.jpg", 
+        "foodCount": 15 ,
+        "likeCount": 2
+        },
+        { 
+        "name": "Altan", 
+        "description": "A rising star in the culinary world. awd awdas wa dasd wa das ga fes gsrv afa awf d", 
+        "chefId": 18, 
+        "picture": "altan.jpg", 
+        "foodCount": 21, 
+        "likeCount": 3 
+        },
+        { 
+        "name": "Bayar", 
+        "description": "Specializes in exotic and rare ingredients. fa fwa w dwa daw dwa d", 
+        "chefId": 19, 
+        "picture": "bayar.jpg", 
+        "foodCount": 23, 
+        "likeCount": 4 
+        },
+        { 
+        "name": "Chimee", 
+        "description": "Known for her artistic plating skills.", 
+        "chefId": 20, 
+        "picture": "chimee.jpg", 
+        "foodCount": 17, 
+        "likeCount": 5 
+        },
+        { 
+        "name": "Delger", 
+        "description": "Focuses on sustainable cooking practices.", 
+        "chefId": 21, 
+        "picture": "delger.jpg", 
+        "foodCount": 20, 
+        "likeCount": 3 
+        },
+        { 
+        "name": "Erkhem", 
+        "description": "A perfectionist in every dish he creates.", 
+        "chefId": 22, 
+        "picture": "erkhem.jpg", 
+        "foodCount": 27, 
+        "likeCount": 6 
+        },
+        { 
+        "name": "Ganaa", 
+        "description": "Loves creating comfort food with a twist.", 
+        "chefId": 23, 
+        "picture": "ganaa.jpg", 
+        "foodCount": 22, 
+        "likeCount": 4 
+        },
+        { 
+        "name": "Khulan", 
+        "description": "An expert in vegan and gluten-free recipes.", 
+        "chefId": 24, 
+        "picture": "khulan.jpg", 
+        "foodCount": 18, 
+        "likeCount": 5 
+        },
+        { 
+        "name": "Munkh", 
+        "description": "Known for his bold and innovative flavors.", 
+        "chefId": 25, 
+        "picture": "munkh.jpg", 
+        "foodCount": 25, 
+        "likeCount": 7 
+        },
+        { 
+        "name": "Narantuya", 
+        "description": "Specializes in festive and holiday dishes.", 
+        "chefId": 26, 
+        "picture": "narantuya.jpg", 
+        "foodCount": 24, 
+        "likeCount": 6 
+        },
+        { 
+        "name": "Temuulen", 
+        "description": "A master of sauces and marinades.", 
+        "chefId": 27, 
+        "picture": "temuulen.jpg", 
+        "foodCount": 29, 
+        "likeCount": 8 
+        },
+        {
+        "name": "Saraa", 
+        "description": "Expert in traditional dishes with a modern twist.", 
+        "chefId": 9, 
+        "picture": "saraa.jpg", 
+        "foodCount": 20, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Ganbaa", 
+        "description": "Specializes in desserts and pastries.", 
+        "chefId": 10, 
+        "picture": "ganbaa.jpg", 
+        "foodCount": 25, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Oyunaa", 
+        "description": "Known for healthy and organic recipes.", 
+        "chefId": 11, 
+        "picture": "oyunaa.jpg", 
+        "foodCount": 18, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Erdene", 
+        "description": "Master of grilling and BBQ.", 
+        "chefId": 12, 
+        "picture": "erdene.jpg", 
+        "foodCount": 30, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Naraa", 
+        "description": "Famous for her vegetarian dishes.", 
+        "chefId": 13, 
+        "picture": "naraa.jpg", 
+        "foodCount": 22, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Bold", 
+        "description": "Expert in seafood cuisine.", 
+        "chefId": 14, 
+        "picture": "bold.jpg", 
+        "foodCount": 28, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Sukh", 
+        "description": "Known for his spicy and flavorful dishes.", 
+        "chefId": 15, 
+        "picture": "sukh.jpg", 
+        "foodCount": 24, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Tuya", 
+        "description": "Specializes in soups and stews.", 
+        "chefId": 16, 
+        "picture": "tuya.jpg", 
+        "foodCount": 19, 
+        "likeCount": 2 
+        },
+        { 
+        "name": "Enkh", 
+        "description": "Loves experimenting with international cuisines.", 
+        "chefId": 17, 
+        "picture": "enkh.jpg", 
+        "foodCount": 26, 
+        "likeCount": 2 
+        }
+]

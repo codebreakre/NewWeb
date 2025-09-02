@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="filterfood.css">
+</head>
+<body>
+       <section id="sort-food">
+            <h2>Filter and Sort Foods</h2>
+    <label for="sort">Sort by likes:</label>
+    <select id="sort">
+         <option value="asc">More First</option>
+         <option value="desc">Less First</option>
+    </select>
+
+
+    <label for="category">Category:</label>
+    <select id="category">
+    <option value="all">All</option>
+    <option value="breakfast">Breakfast</option>
+    <option value="lunch">Lunch</option>
+    <option value="dinner">Dinner</option>
+    </select>
+
+    <label for="time">Time:</label>
+    <select id="time">
+    <option value="all">All</option>
+    <option value="10-20">10-20 minut</option>
+    <option value="20-40">20-40 minut</option>  
+    <option value="40-60">40-60 minut</option>
+    <option value="60+">60+ minut</option>
+    </select>
+        <button onclick="renderFilterredFoods()">Filter</button>
+</section>  
+<style>
+    #sort-food {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        gap: 0.5rem;
+    }
+    
+</style>
+    
+</body>
+</html>

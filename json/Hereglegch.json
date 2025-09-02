@@ -1,0 +1,37 @@
+[
+    {
+        "user_id": 1,
+        "username": "batka",
+        "password": "1234",
+        "liked_foods": [1, 5, 7],
+        "liked_chefs": [2, 3]
+    },
+    {
+        "user_id": 2,
+        "username": "saraa",
+        "password": "abcd",
+        "liked_foods": [2, 4],
+        "liked_chefs": [1, 4]
+    },
+    {
+        "user_id": 3,
+        "username": "boldoo",
+        "password": "pass123",
+        "liked_foods": [3, 6, 8],
+        "liked_chefs": [2]
+    },
+    {
+        "user_id": 4,
+        "username": "naraa",
+        "password": "nara2024",
+        "liked_foods": [1, 2, 9],
+        "liked_chefs": [3, 5]
+    },
+    {
+        "user_id": 5,
+        "username": "erdene",
+        "password": "qwerty",
+        "liked_foods": [4, 5, 6],
+        "liked_chefs": [1]
+    }
+]
