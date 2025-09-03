@@ -147,7 +147,13 @@ let filteredTogooch = [];
 let Hool = [];
 let Hereglegch = [];
 let filteredHool = [];
+let isLoggedIn = false;
 
+export function updateLoginState() {
+    isLoggedIn = !!localStorage.getItem("loggedInUser");
+    const durtai = document.getElementById("durtai");
+    durtai.style.display = isLoggedIn ? "inline" : "none";
+}
 
 
 // --- Load JSON data ---

@@ -1,4 +1,4 @@
-import { navigateTo } from "../htmlFolder/StartPage/MainJS.js";
+import { navigateTo, updateLoginState } from "../htmlFolder/StartPage/MainJS.js";
 
 export function logIn(arr) {
     
@@ -10,6 +10,7 @@ export function logIn(arr) {
         
         // signed in state хадгалах (localStorage ашиглана)
         localStorage.setItem("loggedInUser", JSON.stringify(user));
+        updateLoginState(); // Навигацийн холбоосыг шинэчлэх
         navigateTo('/home');
         
         // жишээ нь дараагийн хуудас руу үсрүүлж болно

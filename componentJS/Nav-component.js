@@ -24,12 +24,15 @@ export class NavComponent extends HTMLElement {
             <a href="/home" data-link >Нүүр</a>
             <a href="/hool" data-link >Хоолнууд</a>
             <a href="/togooch" data-link >Тогооч</a>
-            <a href="/durtai" data-link >Миний дуртай</a>
-            <a href="/log-in" data-link >Нэвтрэх</a>
+            <a href="/durtai" id="durtai" data-link >Миний дуртай</a>
+            <a href="/log-in" id="log-in" data-link >Нэвтрэх</a>
             
         </li></nav>
     </div>
    <style>
+   #durtai {
+    display: none;
+}
    #Ehleliin-bar {
     display: flex;
     justify-content: center;
