@@ -89,7 +89,7 @@ const routes = {
 };
 
 // --- Navigation functions ---
-function navigateTo(path) {
+export function navigateTo(path) {
     history.pushState(null, null, path);
     render();
 }
@@ -113,9 +113,13 @@ function render() {
         renderHoolCards(filteredHool);
     }
     if (path === '/log-in') {
-        document.getElementById("Burtgeh-huudas").addEventListener("click", function() { 
+        document.getElementById("Burtgeh-huudas").onclick = () => {
             navigateTo('/log-in/sign-up');
-        });   
+            };   
+    
+        document.getElementById("Nevtreh").onclick = () => {
+            logIn(Hereglegch);
+        };
     }
     if (path === '/log-in/sign-up') {
         document.getElementById("Burtguuleh").onclick = () => {
@@ -143,7 +147,7 @@ let filteredTogooch = [];
 let Hool = [];
 let Hereglegch = [];
 let filteredHool = [];
-let issignedIn = false;
+
 
 
 // --- Load JSON data ---
