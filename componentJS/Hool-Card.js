@@ -1,3 +1,4 @@
+import { navigateTo } from "../htmlFolder/StartPage/MainJS.js";    
 export class HoolCard extends HTMLElement {
     connectedCallback() {
         this.id = this.getAttribute('id'); // хоолын ID
@@ -102,30 +103,34 @@ h1 {
     }
 
     likeBtn.addEventListener('click', () => {
-        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-        if (!loggedInUser) {
-            alert("Эхлээд нэвтэрнэ үү!");
-            return;
-        }
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-        // Хэрэв өмнө нь like хийсэн бол → unlike
-        if (loggedInUser.liked_foods.includes(this.id)) {
-            loggedInUser.liked_foods = loggedInUser.liked_foods.filter(fid => fid !== this.id);
-            this.count--;
-            likeBtn.style.backgroundColor = "white"; // unlike үед буцааж хар болгож болно
-        } else {
-            // Like хийгээгүй бол → like нэмнэ
-            loggedInUser.liked_foods.push(this.id);
-            this.count++;
-            likeBtn.style.backgroundColor = "red"; // like хийсэн үед улаан
-        }
+    if (!loggedInUser) {
+        alert("Эхлээд нэвтэрнэ үү!");
+        navigateTo('/nevtreh');
+        return; // 🚨 нэвтрээгүй бол шууд буцна
+    }
 
-        this.querySelector('#count').textContent = this.count;
-        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-    });
+
+
+    if (loggedInUser.liked_foods.includes(this.id)) {
+        // already liked → unlike
+        loggedInUser.liked_foods = loggedInUser.liked_foods.filter(fid => fid !== this.id);
+        this.count--;
+        likeBtn.style.backgroundColor = "white";
+    } else {
+        // not liked → like
+        loggedInUser.liked_foods.push(this.id);
+        this.count++;
+        likeBtn.style.backgroundColor = "red";
+    }
+
+    this.querySelector('#count').textContent = this.count;
+    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+});
+
 }
-}
-
+};
 customElements.define('hool-card' , HoolCard);
 
 export function createHoolCard(item) {
