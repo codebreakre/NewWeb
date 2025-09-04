@@ -26,6 +26,10 @@ export class NavComponent extends HTMLElement {
             <a href="/togooch" data-link >Тогооч</a>
             <a href="/durtai" id="durtai" data-link >Миний дуртай</a>
             <a href="/log-in" id="log-in" data-link >Нэвтрэх</a>
+            <div id="profile-section" style="display: none;">
+                <span id="username-display"></span>
+                <button id="logout-button">Гарах</button>
+            </div>
             
         </li></nav>
     </div>
@@ -67,6 +71,7 @@ a {
     text-decoration: none;
     color: black;
     font-size: 20px;
+    }
 
     <style>
 

@@ -3,7 +3,7 @@ import { HoolCard , createHoolCard} from "../../componentJS/Hool-Card.js";
 import { filterFood, filterFoods } from "../../componentJS/Filter-Food.js";
 import { filterChef, filterchefs } from "../../componentJS/Filter-Chef.js";
 import { NavComponent } from "../../componentJS/Nav-component.js";
-import { logIn, signUp } from "../../functnionsJS/signUp.js";
+import { logIn, signUp, logOut, updateLoginState } from "../../functnionsJS/signUp.js";
 
 
 // --- HTML pages ---
@@ -147,13 +147,8 @@ let filteredTogooch = [];
 let Hool = [];
 let Hereglegch = [];
 let filteredHool = [];
-let isLoggedIn = false;
 
-export function updateLoginState() {
-    isLoggedIn = !!localStorage.getItem("loggedInUser");
-    const durtai = document.getElementById("durtai");
-    durtai.style.display = isLoggedIn ? "inline" : "none";
-}
+
 
 
 // --- Load JSON data ---

@@ -1,9 +1,9 @@
 [
     {
         "user_id": 1,
-        "username": "batka",
-        "password": "1234",
-        "liked_foods": [1, 5, 7],
+        "username": "1515",
+        "password": "1515",
+        "liked_foods": [],
         "liked_chefs": [2, 3]
     },
     {
