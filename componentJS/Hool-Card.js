@@ -1,4 +1,4 @@
-import { navigateTo } from "../htmlFolder/StartPage/MainJS.js";    
+import { navigateTo, renderHoolDetail } from "../htmlFolder/StartPage/MainJS.js";    
 export class HoolCard extends HTMLElement {
     connectedCallback() {
         this.id = this.getAttribute('id'); 
@@ -96,9 +96,9 @@ h1 {
     }
 addEvents() {
     const likeBtn = this.querySelector('#like-btn');
-    const foodId = parseInt(this.id); // 👈 id-г нэг мөр тоо болгож авна
+    const foodId = parseInt(this.id); 
 
-    // Хэрэглэгчийн өмнөх like-ийг шалгаад өнгө өөрчилнө
+    // Like-ийн өнгө эхний төлөв
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser && loggedInUser.liked_foods.includes(foodId)) {
         likeBtn.style.backgroundColor = "red";
@@ -106,7 +106,9 @@ addEvents() {
         likeBtn.style.backgroundColor = "white";
     }
 
-    likeBtn.addEventListener('click', () => {
+    // === Like товч ===
+    likeBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // 👈 card click рүү дамжуулахгүй
         loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
         if (!loggedInUser) {
             alert("Эхлээд нэвтэрнэ үү!");
@@ -117,14 +119,12 @@ addEvents() {
             loggedInUser.liked_foods = [];
         }
 
-        // Like → Unlike
         if (loggedInUser.liked_foods.includes(foodId)) {
             loggedInUser.liked_foods = loggedInUser.liked_foods.filter(fid => fid !== foodId);
             this.count--;
             likeBtn.style.backgroundColor = "white";
         } else {
-            // Unlike → Like
-            loggedInUser.liked_foods.push(foodId); // 👈 заавал number push хийж байна
+            loggedInUser.liked_foods.push(foodId);
             this.count++;
             likeBtn.style.backgroundColor = "red";
         }
@@ -132,10 +132,16 @@ addEvents() {
         this.querySelector('#count').textContent = this.count;
         localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
     });
+    this.addEventListener('click', () => {
+        // navigateTo ашиглаж болно
+        navigateTo(`/hool/${foodId}`);
+        // Энд detail renderer-ээ дуудна
+        renderHoolDetail(foodId);
+    });
 }
-
-
 };
+   
+        removeEventListener
 customElements.define('hool-card' , HoolCard);
 
 export function createHoolCard(item) {

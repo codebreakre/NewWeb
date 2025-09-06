@@ -246,6 +246,25 @@ function renderTogoochCards(arr) {
     }
 }
 
+export function renderHoolDetail(foodId) {
+    const food = Hool.find(f => f.food_id === foodId);
+    const chef = Togooch.find(c => c.chefId === food.chef_id);
+    if (!chef) {
+    console.error("Chef not found for food:", food);
+    return;
+}
+    
+    const mainPage = document.getElementById('main-page');
+    mainPage.innerHTML = `
+        <div id="container">
+       
+        <div id="Togooch-Container"></div>
+         </div>
+        <h1>${food.name}</h1>
+        <p>${food.description}</p>
+        `;
+        createTogoochCard(chef);
+}
 
 
 
