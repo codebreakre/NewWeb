@@ -1,7 +1,8 @@
 import { navigateTo } from "../htmlFolder/StartPage/MainJS.js";    
 export class HoolCard extends HTMLElement {
     connectedCallback() {
-        this.id = this.getAttribute('id'); // хоолын ID
+        this.id = this.getAttribute('id'); 
+        console.log(this.id);
         this.name = this.getAttribute('name') || 'Хоолны нэр';
         this.count = parseInt(this.getAttribute('count')) || 0;
         this.render();
@@ -93,43 +94,47 @@ h1 {
     </style>
     `;
     }
-    addEvents() {
+addEvents() {
     const likeBtn = this.querySelector('#like-btn');
+    const foodId = parseInt(this.id); // 👈 id-г нэг мөр тоо болгож авна
 
     // Хэрэглэгчийн өмнөх like-ийг шалгаад өнгө өөрчилнө
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser && loggedInUser.liked_foods.includes(this.id)) {
+    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser && loggedInUser.liked_foods.includes(foodId)) {
         likeBtn.style.backgroundColor = "red";
+    } else {
+        likeBtn.style.backgroundColor = "white";
     }
 
     likeBtn.addEventListener('click', () => {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (!loggedInUser) {
+            alert("Эхлээд нэвтэрнэ үү!");
+            return;
+        }
 
-    if (!loggedInUser) {
-        alert("Эхлээд нэвтэрнэ үү!");
-        navigateTo('/nevtreh');
-        return; // 🚨 нэвтрээгүй бол шууд буцна
-    }
+        if (!Array.isArray(loggedInUser.liked_foods)) {
+            loggedInUser.liked_foods = [];
+        }
 
+        // Like → Unlike
+        if (loggedInUser.liked_foods.includes(foodId)) {
+            loggedInUser.liked_foods = loggedInUser.liked_foods.filter(fid => fid !== foodId);
+            this.count--;
+            likeBtn.style.backgroundColor = "white";
+        } else {
+            // Unlike → Like
+            loggedInUser.liked_foods.push(foodId); // 👈 заавал number push хийж байна
+            this.count++;
+            likeBtn.style.backgroundColor = "red";
+        }
 
-
-    if (loggedInUser.liked_foods.includes(this.id)) {
-        // already liked → unlike
-        loggedInUser.liked_foods = loggedInUser.liked_foods.filter(fid => fid !== this.id);
-        this.count--;
-        likeBtn.style.backgroundColor = "white";
-    } else {
-        // not liked → like
-        loggedInUser.liked_foods.push(this.id);
-        this.count++;
-        likeBtn.style.backgroundColor = "red";
-    }
-
-    this.querySelector('#count').textContent = this.count;
-    localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-});
-
+        this.querySelector('#count').textContent = this.count;
+        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+    });
 }
+
+
 };
 customElements.define('hool-card' , HoolCard);
 
@@ -137,7 +142,7 @@ export function createHoolCard(item) {
     const container = document.getElementById('Hool-Container');
     if (!container) return;
         const card = document.createElement('hool-card');
-        card.setAttribute('id', item.id); 
+        card.setAttribute('id', item.food_id); 
         card.setAttribute('name', item.name);
         card.setAttribute('count', item.likeCount);
         container.appendChild(card);    

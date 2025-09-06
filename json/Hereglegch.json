@@ -3,7 +3,7 @@
         "user_id": 1,
         "username": "1515",
         "password": "1515",
-        "liked_foods": [],
+        "liked_foods": [1, 3, 5, 7],
         "liked_chefs": [2, 3]
     },
     {
