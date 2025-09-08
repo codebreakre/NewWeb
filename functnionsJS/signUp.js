@@ -1,3 +1,5 @@
+/*"use client";*/
+
 import { navigateTo } from "../htmlFolder/StartPage/MainJS.js";
 
 export function logIn(arr) {
@@ -22,7 +24,7 @@ export function logIn(arr) {
 
     }
 
-export  function signUp(arr) {
+export async function signUp(arr) {   // <-- add async here
     let newUserName = document.querySelector('#username input').value;
     let newPassword = document.querySelector('#password input').value;
 
@@ -31,17 +33,36 @@ export  function signUp(arr) {
         document.getElementById("loginMessage").innerText = "Энэ нэр аль хэдийн ашиглагдсан байна!";
         return;
     }
+
     let newUser = {
-        id: arr.length + 1,
         username: newUserName,
-        password: newPassword,
-        liked_foods: [],
-        liked_chefs: []
+        password: newPassword
     };
-    console.log(newUser);
-    arr.push(newUser);
-    document.getElementById("main-page").innerText = "Амжилттай бүртгэгдлээ! Одоо нэвтэрч орно уу.";
+    
+
+    try {
+        const res = await fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newUser)
+        });
+
+        if (!res.ok) throw new Error("Failed to create user");
+
+        const createdUser = await res.json();
+        console.log("User created:", createdUser);
+
+        
+
+        document.getElementById("main-page").innerText = "Амжилттай бүртгэгдлээ! Одоо нэвтэрч орно уу.";
+    } catch (err) {
+        console.error(err);
+        document.getElementById("loginMessage").innerText = "Алдаа гарлаа, дахин оролдно уу.";
+    }
 };
+
 
 export function updateLoginState() {
     let isLoggedIn = false;

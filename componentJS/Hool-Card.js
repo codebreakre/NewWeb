@@ -2,7 +2,6 @@ import { navigateTo, renderHoolDetail } from "../htmlFolder/StartPage/MainJS.js"
 export class HoolCard extends HTMLElement {
     connectedCallback() {
         this.id = this.getAttribute('id'); 
-        console.log(this.id);
         this.name = this.getAttribute('name') || 'Хоолны нэр';
         this.count = parseInt(this.getAttribute('count')) || 0;
         this.render();
@@ -149,7 +148,7 @@ export function createHoolCard(item) {
     if (!container) return;
         const card = document.createElement('hool-card');
         card.setAttribute('id', item.food_id); 
-        card.setAttribute('name', item.name);
+        card.setAttribute('name', item.foodname);
         card.setAttribute('count', item.likeCount);
         container.appendChild(card);    
 }
