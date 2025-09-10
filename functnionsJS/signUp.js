@@ -1,28 +1,33 @@
 /*"use client";*/
+import {routes} from "../routes/routes.js";
 
 import { navigateTo } from "../htmlFolder/StartPage/MainJS.js";
 
-export function logIn(arr) {
-    
-        const username = document.querySelector('#username input').value;
-        const password = document.querySelector('#password input').value;
-        const user= arr.find(u => u.username === username && u.password === password);
-       if(user) {
-        prompt("Амжилттай нэвтэрлээ!");
-        
-        // signed in state хадгалах (localStorage ашиглана)
-        localStorage.setItem("loggedInUser", JSON.stringify(user));
-         // Навигацийн холбоосыг шинэчлэх
+export async function logIn(arr) {
+    const username = document.querySelector('#username input').value;
+    const password = document.querySelector('#password input').value;
+
+    const user = arr.find(u => u.username === username && u.password === password);
+     console.log(user.user_id);
+
+    if (user) {
+        // серверээс бүрэн хэрэглэгч авах
+        const resUser = await fetch(`http://localhost:3000/users/${parseInt(user.user_id)}`);
+        const fullUser = await resUser.json();
+       
+
+        // зөвхөн бүрэн хэрэглэгчийг хадгална
+        localStorage.setItem("loggedInUser", JSON.stringify(fullUser));
+        console.log(fullUser);
+        alert("Амжилттай нэвтэрлээ!");
         navigateTo('/home');
         updateLoginState();
-        
-        // жишээ нь дараагийн хуудас руу үсрүүлж болно
-        // window.location.href = "profile.html";
-    } else {
-        document.getElementById("main-page").innerText = `Нэр эсвэл нууц үг буруу байна!, Ахиад нэвтэр`;
-        }
 
+    } else {
+        document.getElementById("main-page").innerText = 
+            `Нэр эсвэл нууц үг буруу байна!, Ахиад нэвтэр`;
     }
+}
 
 export async function signUp(arr) {   // <-- add async here
     let newUserName = document.querySelector('#username input').value;

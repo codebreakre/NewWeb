@@ -1,5 +1,5 @@
 // --- HTML pages ---
-const aboutPage = `
+export let aboutPage = `
     <h1>About Us</h1>
     <p>Welcome to our recipe website! We are passionate about sharing delicious and easy-to-make recipes with food enthusiasts around the world. Our mission is to inspire home cooks to explore new flavors and culinary techniques while providing a platform for chefs to showcase their talents.</p>
     <p>Whether you're a beginner in the kitchen or an experienced cook, our website offers a wide variety of recipes to suit every taste and skill level. From quick weeknight dinners to elaborate gourmet dishes, we have something for everyone.</p>
@@ -28,7 +28,12 @@ const TogoochListPage = `
     </div>
 `;
 
-const DurtaiPage = `sdsd`;
+const DurtaiPage = `
+    <div id="container">
+        <div id="Togooch-Container"></div>
+        <div id="Hool-Container"></div>
+    </div>
+`;
 
 const LogInPage = `
     <div id="sign-in-page">

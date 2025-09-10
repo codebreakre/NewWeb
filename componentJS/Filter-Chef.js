@@ -65,8 +65,8 @@ function filterByLikes(arr) {
     if (!filterComponent) return arr;
     const sortOrder = filterComponent.shadowRoot.getElementById('sortLikes').value;
 
-    if (sortOrder === 'asc') return arr.slice().sort((a, b) => b.likeCount - a.likeCount);
-    if (sortOrder === 'desc') return arr.slice().sort((a, b) => a.likeCount - b.likeCount);
+    if (sortOrder === 'asc') return arr.slice().sort((a, b) => b.likecount - a.likecount);
+    if (sortOrder === 'desc') return arr.slice().sort((a, b) => a.likecount - b.likecount);
     return arr;
 }
 
@@ -75,8 +75,8 @@ function filterByFoodCount(arr) {
     if (!filterComponent) return arr;
     const sortOrder = filterComponent.shadowRoot.getElementById('sortFoods').value;
 
-    if (sortOrder === 'asc') return arr.slice().sort((a, b) => b.foodCount - a.foodCount);
-    if (sortOrder === 'desc') return arr.slice().sort((a, b) => a.foodCount - b.foodCount);
+    if (sortOrder === 'asc') return arr.slice().sort((a, b) => b.foodcount - a.foodcount);
+    if (sortOrder === 'desc') return arr.slice().sort((a, b) => a.foodcount - b.foodcount);
     return arr;
 }
 

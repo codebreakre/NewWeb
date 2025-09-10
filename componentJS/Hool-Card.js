@@ -13,8 +13,7 @@ export class HoolCard extends HTMLElement {
          this.innerHTML = `
  <div id="Hool-Card">
         <div id="Hool-zurag">
-            <img src="../../zuragnuud/Food-zurag.jpg" alt="">
-        </div>
+             <img src="../../zuragnuud/Food-image.jpg" alt="">
         <section id="Hool-Info">
             <p id="Hool-ner">${this.name}</p>
             <section id="Like-Count">
@@ -99,8 +98,10 @@ addEvents() {
 
     // Like-ийн өнгө эхний төлөв
     let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (loggedInUser && loggedInUser.liked_foods.includes(foodId)) {
+    if (loggedInUser ) {
+        if(loggedInUser.liked_foods.includes(foodId)){
         likeBtn.style.backgroundColor = "red";
+    }
     } else {
         likeBtn.style.backgroundColor = "white";
     }
@@ -120,9 +121,11 @@ addEvents() {
 
         if (loggedInUser.liked_foods.includes(foodId)) {
             loggedInUser.liked_foods = loggedInUser.liked_foods.filter(fid => fid !== foodId);
+            unlikefood(foodId);
             this.count--;
             likeBtn.style.backgroundColor = "white";
         } else {
+            likefood(foodId);
             loggedInUser.liked_foods.push(foodId);
             this.count++;
             likeBtn.style.backgroundColor = "red";
@@ -140,7 +143,7 @@ addEvents() {
 }
 };
    
-        removeEventListener
+        
 customElements.define('hool-card' , HoolCard);
 
 export function createHoolCard(item) {
@@ -149,6 +152,49 @@ export function createHoolCard(item) {
         const card = document.createElement('hool-card');
         card.setAttribute('id', item.food_id); 
         card.setAttribute('name', item.foodname);
-        card.setAttribute('count', item.likeCount);
+        card.setAttribute('count', item.likecount);
         container.appendChild(card);    
+}
+
+
+async function likefood(foodId) {
+        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    try {
+        const response = await fetch('http://localhost:3000/like-food', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                user_id: loggedInUser.user_id,
+                food_id: foodId
+            }),
+        });
+        if (!response.ok) throw new Error('Network response was not ok (like food)');
+        const data = await response.json();
+        console.log('Food liked:', data);
+    } catch (error) {
+        console.error('Fetch error:', error);
+    }
+}
+async function unlikefood(foodId) {
+        const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    try {
+        const response = await fetch('http://localhost:3000/unlike-food', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json', 
+            },
+            body: JSON.stringify({
+                user_id: loggedInUser.user_id,
+                food_id: foodId
+            }),
+        });
+        if (!response.ok) throw new Error('Network response was not ok (unlike food)');
+        const data = await response.json();
+        console.log('Food unliked:', data);
+    }
+    catch (error) {
+        console.error('Fetch error:', error);
+    }
 }
