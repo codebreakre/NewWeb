@@ -5,21 +5,30 @@
     import { NavComponent } from "../../componentJS/Nav-component.js";
     import { logIn, signUp, logOut, updateLoginState } from "../../functnionsJS/signUp.js";
     import {routes, aboutPage} from "../../routes/routes.js";
+    import { SubmitFood } from "../../functnionsJS/addfood.js";
 
 
     // --- Navigation functions ---
     export function navigateTo(path) {
-        history.pushState(null, null, path);
-        render();
+        window.location.hash = path;
     }
 
 
     function render() {
-        const path = window.location.pathname;
+        const path = window.location.hash.replace("#", "") || "/home";
         document.getElementById('main-page').innerHTML = routes[path] || aboutPage;
         currentIndexFood = 0;
         currentIndexChef = 0;
         // Only render chefs if we are on the Togooch page
+        if  (path === '/addfood') {
+            document.getElementById("addFood").onclick = () => {
+                
+                setTimeout(SubmitFood(), 100);
+            }
+        }
+        if  (path === '/userprofile') {
+
+        }
         if (path === '/togooch') {
             renderTogoochCards(filteredTogooch);
         }
@@ -51,9 +60,20 @@
                 const food = Hool.find(f => f.food_id === user.liked_foods[i]);
                 if (food) createHoolCard(food);
             }   
-    }
+        }   
+        if (path.startsWith('/hool/')) {
+            const foodId = parseInt(path.split('/')[2]);
+            renderHoolDetail(foodId); // Энд detail renderer-ээ дуудна
+        }
+        if (path.startsWith('/togooch/')) {
+            const chefId = parseInt(path.split('/')[2]);
+            renderChefDetail(chefId); // Энд detail renderer-ээ дуудна
+
+        }
     }
     
+    window.addEventListener("hashchange", render);
+    window.addEventListener("load", render);
 
     document.addEventListener("click", e => {
         if (e.target.matches("[data-link]")) {
@@ -103,7 +123,7 @@
             console.log(Hool);
             console.log(Hool[0].foodname);
             
-            navigateTo(`/home`);
+           
         } catch (error) {
             console.error('Fetch error:', error);
         }
@@ -139,7 +159,7 @@
 
     window.renderFilteredFoods = renderFilteredFoods;
     window.renderFilteredChefs = renderFilteredChefs;
-    window.check = check;
+
 
     function renderHoolCards(arr) {
         const container = document.getElementById('Hool-Container');
@@ -191,7 +211,7 @@
         
             <div id="Togooch-Container"></div>
             </div>
-            <h1>${food.name}</h1>
+            <h1>${food.foodname}</h1>
             <p>${food.description}</p>
             `;
             createTogoochCard(chef);

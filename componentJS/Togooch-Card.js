@@ -71,8 +71,7 @@
                 localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
             });
             this.addEventListener('click', () => {
-                navigateTo(`/togooch/${chefId}`);
-                renderChefDetail(chefId); // Энд detail renderer-ээ дуудна
+                navigateTo(`/togooch/${chefId}`); // Энд detail renderer-ээ дуудна
             });
         }
         };

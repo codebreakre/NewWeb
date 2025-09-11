@@ -138,7 +138,7 @@ addEvents() {
         // navigateTo ашиглаж болно
         navigateTo(`/hool/${foodId}`);
         // Энд detail renderer-ээ дуудна
-        renderHoolDetail(foodId);
+        
     });
 }
 };

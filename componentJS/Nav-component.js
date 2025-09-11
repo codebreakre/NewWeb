@@ -9,8 +9,7 @@ export class NavComponent extends HTMLElement {
          this.shadowRoot.addEventListener("click", e => {
             if (e.target.matches("[data-link]")) {
                 e.preventDefault();
-                history.pushState(null, null, e.target.getAttribute("href"));
-                window.dispatchEvent(new Event("popstate")); // SPA rerender
+   window.location.hash = e.target.getAttribute("href");
             }
         });
     }
@@ -27,7 +26,7 @@ export class NavComponent extends HTMLElement {
             <a href="/durtai" id="durtai" data-link >Миний дуртай</a>
             <a href="/log-in" id="log-in" data-link >Нэвтрэх</a>
             <div id="profile-section" style="display: none;">
-                <span id="username-display"></span>
+                <a href="/userprofile" data-link id="username-display"></a>
                 <button id="logout-button">Гарах</button>
             </div>
             

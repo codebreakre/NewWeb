@@ -101,12 +101,12 @@
   // POST new food
   app.post("/foods", async (req, res) => {
     try {
-      const { foodName, image, chef_id, time, category, description } = req.body;
+      const { foodName, chef_id, time, category, description, likecount} = req.body;
       const result = await pool.query(
         `INSERT INTO foods 
-        (foodName, image, chef_id, time, category, description) 
+        (foodname, chef_id, time, category, description, likecount) 
         VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
-        [foodName, image, chef_id, time, category, description]
+        [foodName, chef_id, time, category, description, likecount]
       );
       res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -178,7 +178,20 @@
     }
   });
 
-
+  app.get("/chefs/:id", async (req, res) => {
+    const id = parseInt(req.params.id);
+    try {
+      const result = await pool.query("SELECT * FROM chefs WHERE chef_id=$1", [id]);
+      if (result.rows.length === 0) {
+        return res.status(404).send("Chef not found");
+      }
+      res.json(result.rows[0]);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Server error");
+    }
+  });
+  
   // GET нэг хэрэглэгч + түүний liked foods/chefs
   app.get("/users/:id", async (req, res) => {
     const id = parseInt(req.params.id);
@@ -273,6 +286,8 @@
       res.status(500).send("Server error");
     }
   });
+
+
 
   // Start server
   app.listen(process.env.PORT, () => {

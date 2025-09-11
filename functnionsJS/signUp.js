@@ -41,7 +41,7 @@ export async function signUp(arr) {   // <-- add async here
 
     let newUser = {
         username: newUserName,
-        password: newPassword
+        password: newPassword,
     };
     
 
